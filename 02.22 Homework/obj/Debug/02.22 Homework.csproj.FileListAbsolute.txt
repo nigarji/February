@@ -1,0 +1,8 @@
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\bin\Debug\02.22 Homework.exe.config
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\bin\Debug\02.22 Homework.exe
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\bin\Debug\02.22 Homework.pdb
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\obj\Debug\02.22 Homework.csproj.AssemblyReference.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\obj\Debug\02.22 Homework.csproj.SuggestedBindingRedirects.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\obj\Debug\02.22 Homework.csproj.CoreCompileInputs.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\obj\Debug\02.22 Homework.exe
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\02.22 Homework\obj\Debug\02.22 Homework.pdb
