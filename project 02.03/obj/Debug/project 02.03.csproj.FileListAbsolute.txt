@@ -1,0 +1,8 @@
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\bin\Debug\project 02.03.exe.config
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\bin\Debug\project 02.03.exe
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\bin\Debug\project 02.03.pdb
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\obj\Debug\project 02.03.csproj.AssemblyReference.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\obj\Debug\project 02.03.csproj.SuggestedBindingRedirects.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\obj\Debug\project 02.03.csproj.CoreCompileInputs.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\obj\Debug\project 02.03.exe
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\project 02.03\obj\Debug\project 02.03.pdb

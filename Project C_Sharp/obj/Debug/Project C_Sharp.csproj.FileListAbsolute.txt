@@ -1,0 +1,8 @@
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\obj\Debug\Project C_Sharp.csproj.AssemblyReference.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\obj\Debug\Project C_Sharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\obj\Debug\Project C_Sharp.csproj.CoreCompileInputs.cache
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\bin\Debug\Project C_Sharp.exe.config
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\bin\Debug\Project C_Sharp.exe
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\bin\Debug\Project C_Sharp.pdb
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\obj\Debug\Project C_Sharp.exe
+C:\Users\msnig\OneDrive\Рабочий стол\New folder\Project C_Sharp\obj\Debug\Project C_Sharp.pdb

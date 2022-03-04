@@ -14,14 +14,14 @@ namespace _02._23
 
         public Student(string fullname, string groupno, int age)
         {
-            this.Fullname= fullname;
-            this.GroupNo= groupno;
-            this.Age=age;   
+            this.Fullname = fullname;
+            this.GroupNo = groupno;
+            this.Age = age;
         }
 
         public static bool FullName(string fullname)
         {
-            fullname=fullname.Trim();
+          //  fullname=fullname.Trim();
             string[] arr = fullname.Split(' '); //nigar ismayilova
             
             if(arr.Length==2)              
