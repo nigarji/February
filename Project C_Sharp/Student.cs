@@ -9,14 +9,31 @@ namespace Project_C_Sharp
     public class Student
     {
         public string Fullname;
-        public string GroupnNo;
+        public string GroupNo;
         public bool Type;
-        public char Key;
 
-        public void Stu (char  key)
+        public Student(string fullname, string groupno, bool type=false)
         {
-           Key=key;
-
+            Fullname = fullname;
+            GroupNo = groupno;
+                                
+            Type = type;
         }
+        public void GetInfo()
+        {
+            Console.WriteLine("Student Fullname:" +" "+ Fullname );
+            Console.WriteLine("Student Group No:" + " " + GroupNo);
+            if (Type)
+            {
+                Console.WriteLine("Student Type:" + " " + "zemanetlidir");
+
+            }
+            else
+            {
+                Console.WriteLine("Student Type:" + " " + "zemanetli deyil");
+            }
+            Console.WriteLine();
+        }
+
     }
 }

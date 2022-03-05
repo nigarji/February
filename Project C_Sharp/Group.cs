@@ -12,7 +12,7 @@ namespace Project_C_Sharp
         public string Category;
         public bool IsOnline;
         public int Limit;
-        public Student[] Students;
+        public Student[] Students=new Student[] {};
         public Group(string groupNo, int limit, string category, 
             bool isOnline = false)
         {
@@ -20,6 +20,7 @@ namespace Project_C_Sharp
             IsOnline = isOnline;
             Category = category;
             Limit = limit;
+
         }
 
         public static bool CheckGroupNo(string groupNo)
@@ -46,6 +47,9 @@ namespace Project_C_Sharp
         }
 
         public void EditGroup(string groupNo, string newGroup)
+        {
+        }
+        public static void AddStu(Student student, string groupNo, Group[] grouplist)
         {
         }
     }
