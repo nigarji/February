@@ -13,6 +13,11 @@ namespace Project_C_Sharp
         public bool IsOnline;
         public int Limit;
         public Student[] Students=new Student[] {};
+
+        public Group()
+        {
+
+        }
         public Group(string groupNo, int limit, string category, 
             bool isOnline = false)
         {
@@ -41,16 +46,41 @@ namespace Project_C_Sharp
             return true;
         }
 
-        public void ShowListGroups(string studentList, string groupNo)
+        public void ShowListStudents()
         {
-
+            foreach (Student student in Students)
+            {
+                student.GetInfo();
+            }
         }
-
-        public void EditGroup(string groupNo, string newGroup)
+        public static void NewStuInGroup(Student newstudent, Group[] grouplist)
         {
+            foreach (Group grp in grouplist) 
+            {
+                if (grp.No==newstudent.GroupNo)
+                {
+                    grp.AddStudent(newstudent);
+                    break;
+                }
+            }
+            
         }
-        public static void AddStu(Student student, string groupNo, Group[] grouplist)
+        public void AddStudent(Student student)
         {
+            Array.Resize(ref Students, Students.Length + 1);
+            Students[Students.Length-1]=student;
+        }
+        public static void NewGroupNo(string newGroupNo, string oldGroupNo, Group[] grouplist)
+        
+        {
+            foreach (Group grp in grouplist)
+            {
+                if (grp.No==oldGroupNo)
+                {
+                    grp.No = newGroupNo;
+                    break;
+                }
+            }
         }
     }
 }

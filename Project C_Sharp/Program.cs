@@ -14,13 +14,17 @@ namespace Project_C_Sharp
             Group[] groupList = new Group[0];
             bool mainPart = true;
             while (mainPart)
+
             {
 
-
+                Console.Clear();
                 Console.WriteLine("Choose the number of the process you'd like to start");
                 Console.WriteLine("1.Create New Group \n" +
                     "2.Show the list of the groups \n" +
-                    "3.Edit Group");
+                    "3.Edit Group\n"+
+                    "4.Students in Group\n"+
+                    "5.All students list\n"+
+                    "6.Create new Student.");
 
                 ConsoleKeyInfo keycode = Console.ReadKey();
 
@@ -32,12 +36,12 @@ namespace Project_C_Sharp
                         Console.Clear();
                         Console.WriteLine("\nEnter GroupNo");
                         bool result = false;
-                        string checkgroup = "";
+                        string groupNo = "";
 
                         while (!result)
                         {
-                            checkgroup = Console.ReadLine();
-                            result = Group.CheckGroupNo(checkgroup);
+                            groupNo = Console.ReadLine();
+                            result = Group.CheckGroupNo(groupNo);
 
                             if (!result)
                             {
@@ -87,9 +91,10 @@ namespace Project_C_Sharp
                             isOnline = true;
                             limit = 15;
                         }
-                        Group group = new Group(checkgroup, limit, ctgry, isOnline);
+
+                        Group groupIn = new Group(groupNo, limit, ctgry, isOnline);
                         Array.Resize(ref groupList, groupList.Length + 1);
-                        groupList[groupList.Length - 1] = group;
+                        groupList[groupList.Length - 1] = groupIn;
 
 
 
@@ -98,57 +103,106 @@ namespace Project_C_Sharp
                         Console.Clear();
                         foreach (Group grp in groupList)
                         {
-                            Console.WriteLine("Group No:"+ " "+ grp.No);
-                            Console.WriteLine("Student Count:" + " "+ grp.Students.Length);
-                            Console.WriteLine("Group Status:"+" "+ grp.IsOnline);
-                            Console.WriteLine("Group Limit:"+ " "+ grp.Limit);
-                            Console.WriteLine("Group Category:"+" "+ grp.Category);
+                            Console.WriteLine("Group No:" + " " + grp.No);
+                            Console.WriteLine("Student Count:" + " " + grp.Students.Length);
+                            Console.WriteLine("Group Status:" + " " + (grp.IsOnline ?"Yes" :"No"));
+                            Console.WriteLine("Group Limit:" + " " + grp.Limit);
+                            Console.WriteLine("Group Category:" + " " + grp.Category);
                             Console.WriteLine();
                         }
                         Console.ReadLine();
 
                         break;
                     case "NumPad3":
+                        Console.Clear();
+                        Console.WriteLine("Enter GroupNo you want to change");
+                        Group existsNo ;
+                        string newgroupNo;
+                        string oldgroupNo = Console.ReadLine();
+                        existsNo = GroupNoExists(groupList, oldgroupNo);
+                      
+                        if (existsNo!=null)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Enter New GroupNo"); 
+                            newgroupNo = Console.ReadLine();
+                           while (GroupNoExists(groupList,newgroupNo)!=null)
+                            {
+                                Console.WriteLine("This GroupNo is already exist.Try new group number.");
+                                newgroupNo=Console.ReadLine();
+                            }
+                            Group.NewGroupNo(newgroupNo, oldgroupNo, groupList);
+                            Console.WriteLine("This GroupNo was changed to" + " "+newgroupNo);
 
-                        Console.WriteLine("Show List of the Groups is chosen");
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is GroupNo under this name");
+                        }
+                        
+                            
+                        Console.WriteLine();
+                      
                         break;
                     case "NumPad4":
-                        Console.WriteLine("List of Students in group is chosen");
+                        Console.Clear();
+                        Console.WriteLine("Enter the GroupNo you want to see the Students");
+                    
+                        Group isExistsGroupNo = null;
+                        while (isExistsGroupNo == null)
+                        {
+                           string seeStudentsGroupNo = Console.ReadLine();
+                            isExistsGroupNo = GroupNoExists(groupList, seeStudentsGroupNo);
+                            if (isExistsGroupNo != null)
+                            {
+                                isExistsGroupNo.ShowListStudents();
+                                Console.Read();
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("There is no GroupNo under that name.Try Again");
+
+                            }
+
+                        }
                         break;
+
                     case "NumPad5":
-                        Console.WriteLine("Show whole list of Students");
+                        Console.Clear();
+                        AllInfo(groupList);
+                        Console.ReadLine();
                         break;
+
                     case "NumPad6":
                         Console.Clear();
                         Console.WriteLine("Enter Student Fullname");
-                        string stuFullname= Console.ReadLine();
-                        bool isExist = false;
+                        string stuFullname = Console.ReadLine();
+                        Group isExist=null;
                         string stuGroupNo = "";
-                        while(!isExist)
+                        while (isExist==null)
                         {
                             Console.WriteLine("Enter Student Group No");
                             stuGroupNo = Console.ReadLine();
                             isExist = GroupNoExists(groupList, stuGroupNo);
 
-                            if (isExist == false)
+                            if (isExist == null)
                             {
                                 Console.WriteLine("There is no group in that name");
                             }
-                            
+
                         }
                         Console.Clear();
                         Console.WriteLine("Enter ifGuaranteed: Yes or No");
-                        bool isGuarant= Console.ReadLine().ToLower() == "yes";
-                        Student newStudent=new Student(stuFullname,stuGroupNo,isGuarant);
-
-                        Console.WriteLine();
+                        bool isGuarant = Console.ReadLine().ToLower() == "yes";
+                        Student newStudent = new Student(stuFullname, stuGroupNo, isGuarant);
+                        Group.NewStuInGroup(newStudent, groupList); 
                         
+                        Console.WriteLine();
+                     
                         break;
-                                     
-
-
                     default:
-                        Console.WriteLine("Please chose one");
+                        Console.WriteLine("Please choose one");
 
                         break;
 
@@ -157,17 +211,31 @@ namespace Project_C_Sharp
             }
 
         }
-        public static bool GroupNoExists(Group[] groups, string stuGroupNo)
+        public static Group GroupNoExists(Group[] groups, string stuGroupNo)
 
         {
             foreach (Group item in groups)
             {
                 if (item.No == stuGroupNo)
                 {
-                    return true;
+                    return item;
                 }
             }
-            return false;
+            return null;
+        }
+        public static void AllInfo (Group[] grouplist)
+
+        {
+            foreach (Group grp in grouplist)
+            {
+                foreach (Student stu in grp.Students)
+                {
+                    Console.WriteLine($"Student Fullname: {stu.Fullname }");
+                    Console.WriteLine($"Student Group No: {stu.GroupNo}");
+                    Console.WriteLine("Student Is Online: " + ( grp.IsOnline ? "Online" : "Offline"));
+                }
+
+            }
         }
     }
 }
